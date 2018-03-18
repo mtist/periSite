@@ -74,22 +74,24 @@
 
                                         <div class="form-description col-center-xs">
                                             <div class="row col-center-xs">
-                                                <form>
+                                                <form action="" method="post">
+                                                    {% csrf_token %}
                                                     <div class="col-md-6 regForm">
-                                                        <label class="regField">
-                                                            <p class="field-name"><strong>Имя</strong></p>
-                                                            <input type="text" name="name" class="regInput">
-                                                        </label>
-                                                        <br>
-                                                        <label class="regField">
-                                                            <p class="field-name"><strong>Фамилия</strong></p>
-                                                            <input type="text" name="surname" class="regInput">
-                                                        </label>
-                                                        <br>
-                                                        <label class="regField">
-                                                            <p class="field-name"><strong>Почта</strong></p>
-                                                            <input type="email" name="email" class="regInput">
-                                                        </label>
+                                                        {{ form }}
+{#                                                        <label class="regField">#}
+{#                                                            <p class="field-name"><strong>Имя</strong></p>#}
+{#                                                            <input type="text" name="name" class="regInput">#}
+{#                                                        </label>#}
+{#                                                        <br>#}
+{#                                                        <label class="regField">#}
+{#                                                            <p class="field-name"><strong>Фамилия</strong></p>#}
+{#                                                            <input type="text" name="surname" class="regInput">#}
+{#                                                        </label>#}
+{#                                                        <br>#}
+{#                                                        <label class="regField">#}
+{#                                                            <p class="field-name"><strong>Почта</strong></p>#}
+{#                                                            <input type="email" name="email" class="regInput">#}
+{#                                                        </label>#}
                                                     </div>
                                                     <div class="cafeForm col-md-6 col-center-xs">
                                                         <p class="field-name"><strong>Кафе</strong></p>
@@ -107,7 +109,7 @@
                                                     <div class="row">
                                                         <div class="row col-xs-12 formButton">
                                                             <div class="col-xs-3 col-sm-4"></div>
-                                                            <input class="col-xs-6 col-sm-4" type="submit" value="Отправить">
+                                                            <input class="col-xs-6 col-sm-4 btn btn-primary" type="submit" value="Отправить">
                                                         </div>
                                                     </div>
                                                 </form>
