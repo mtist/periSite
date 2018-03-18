@@ -7,8 +7,8 @@ def home(request):
     cafes = Cafe.objects.all()
     form = RegisterForm(request.POST or None)
     if request.method == 'POST':
-        print(request.POST)
-        # if form.is_valid():
-        #     return render(request, 'thanks.html', {'register': form})
+        if form.is_valid():
+            form.save()
+            return render(request, 'thanks.html', {'register': form})
 
     return render(request, 'index.html', {'cafes': cafes, 'form': form})
