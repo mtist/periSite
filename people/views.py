@@ -8,7 +8,12 @@ def home(request):
     form = RegisterForm(request.POST or None)
     if request.method == 'POST':
         if form.is_valid():
-            form.save()
+            cafe_id = form.cleaned_data['cafe']
+            cafe = Cafe.objects.get(id=cafe_id)
+            obj = form.save(commit=False)
+            obj.cafe = cafe
+            obj.save()
             return render(request, 'thanks.html', {'register': form})
-
+        else:
+            return render(request, 'thanks.html', {'register': form})
     return render(request, 'index.html', {'cafes': cafes, 'form': form})

@@ -77,30 +77,30 @@
                                                 <form action="" method="post">
                                                     {% csrf_token %}
                                                     <div class="col-md-6 regForm">
-                                                        {{ form }}
-{#                                                        <label class="regField">#}
-{#                                                            <p class="field-name"><strong>Имя</strong></p>#}
-{#                                                            <input type="text" name="name" class="regInput">#}
-{#                                                        </label>#}
-{#                                                        <br>#}
-{#                                                        <label class="regField">#}
-{#                                                            <p class="field-name"><strong>Фамилия</strong></p>#}
-{#                                                            <input type="text" name="surname" class="regInput">#}
-{#                                                        </label>#}
-{#                                                        <br>#}
-{#                                                        <label class="regField">#}
-{#                                                            <p class="field-name"><strong>Почта</strong></p>#}
-{#                                                            <input type="email" name="email" class="regInput">#}
-{#                                                        </label>#}
+{#                                                        {{ form }}#}
+                                                        <label class="regField">
+                                                            <p class="field-name"><strong>Имя</strong></p>
+                                                            <input type="text" name="{{ form.name.html_name }}" value="{{ form.name.value|default_if_none:'' }}" class="regInput">
+                                                        </label>
+                                                        <br>
+                                                        <label class="regField">
+                                                            <p class="field-name"><strong>Фамилия</strong></p>
+                                                            <input type="text" name="{{ form.surname.html_name }}" value="{{ form.surname.value|default_if_none:'' }}" class="regInput">
+                                                        </label>
+                                                        <br>
+                                                        <label class="regField">
+                                                            <p class="field-name"><strong>Почта</strong></p>
+                                                            <input type="email" name="{{ form.email.html_name }}" value="{{ form.email.value|default_if_none:'' }}" class="regInput">
+                                                        </label>
                                                     </div>
                                                     <div class="cafeForm col-md-6 col-center-xs">
                                                         <p class="field-name"><strong>Кафе</strong></p>
                                                         <div class="col-xs-12">
                                                             {% for cafe in cafes %}
                                                                 <div class="cLayout col-center-xs col-xs-4">
-                                                                    <input type="radio" name="cafe" class="cafe-layout" id="{{ cafe.id }}">
+                                                                    <input type="radio" name="Кафе" class="cafe-layout" id="{{ cafe.id }}">
                                                                     <label for="{{ cafe.id }}" class="layout-button settings-box-element">
-                                                                        <img class="cIcon" src="{{ cafe.icon }}">
+                                                                        <img class="cIcon" src="{{ cafe.icon.url }}">
                                                                     </label>
                                                                 </div>
                                                             {% endfor %}
@@ -120,8 +120,9 @@
                             </div>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="venue">
-                            <h4> Lorem ipsum dolor sit amet,<br> consectetur adipiscing elit,<br> sed do eiusmod<br>
-                                Pune 411058</h4><br>
+                            <div class="container">
+
+                            </div>
                         </div>
                         <div role="tabpanel" class="tab-pane fade" id="termCondition">
                             <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor

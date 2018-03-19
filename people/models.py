@@ -15,7 +15,6 @@ class People(models.Model):
     name = models.CharField('Имя', max_length=32)
     surname = models.CharField('Фамилия', max_length=32)
     email = models.EmailField('Почта')
-    # cafe = models.IntegerField(name='id кафе')
     cafe = models.ForeignKey(Cafe, name='Кафе', on_delete=models.CASCADE)
 
     def __str__(self):
